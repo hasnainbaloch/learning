@@ -11,7 +11,7 @@ function LandingLayout({ children, ...rest }) {
                     <nav>
                         <ul>
                             <li>
-                                <Link to="/dashboard/home">
+                                <Link to="/dashboard">
                                     Dashboard
                                 </Link>
                             </li>
