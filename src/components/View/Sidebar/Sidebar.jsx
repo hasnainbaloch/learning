@@ -10,7 +10,7 @@ return (
         <nav>
         <ul>
             <li>
-            <Link to="/dashboard/home">Home</Link>
+            <Link to="/dashboard">Home</Link>
             </li>
             <li>
             <Link to="/dashboard/about">About</Link>

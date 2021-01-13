@@ -23,7 +23,7 @@ function App() {
         <LandingLayoutRoute path="/landing" exact component={Landing} />
         
         {/* Dashboard Layout   */}
-        <DashboardLayoutRoute path="/dashboard/home" exact component={Home} />
+        <DashboardLayoutRoute path="/dashboard" exact component={Home} />
         <DashboardLayoutRoute path="/dashboard/about" exact component={About} />
         
         {/* Page not-found */}
