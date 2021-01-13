@@ -1,7 +1,8 @@
 import React from 'react';
 import './LandingLayout.css';
-import { Header, Footer, Sidebar } from '../../View';
-import { Link, Route } from 'react-router-dom';
+import { Footer } from '../../View';
+
+import { Redirect, Route, Link } from 'react-router-dom';
 
 function LandingLayout({ children, ...rest }) {
     return (
@@ -11,8 +12,8 @@ function LandingLayout({ children, ...rest }) {
                     <nav>
                         <ul>
                             <li>
-                                <Link to="/dashboard">
-                                    Dashboard
+                                <Link to="/login">
+                                    Login
                                 </Link>
                             </li>
                         </ul>
@@ -31,14 +32,17 @@ function LandingLayout({ children, ...rest }) {
     )
 }
 
-const LandingLayoutRoute = ({ component: Component, ...rest }) => {
+const PublictRoute = ({ component: Component, ...rest }) => {
     return (
-        <Route {...rest} render={matchProps => (
-            <LandingLayout>
-                <Component {...matchProps} />
-            </LandingLayout>
+        <Route {...rest} render={props => (
+            localStorage.getItem('isLogin') ?
+                <Redirect to="/dashboard" />
+                :
+                <LandingLayout>
+                    <Component {...props} />
+                </LandingLayout>
         )} />
     )
 };
 
-export default LandingLayoutRoute;
+export default PublictRoute;

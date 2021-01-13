@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './DashboardLayout.css';
+
 import { Header, Footer, Sidebar } from '../../View';
-import { Route } from 'react-router-dom';
+
+import { Redirect, Route } from 'react-router-dom';
 
 function DashboardLayout({ children, ...rest }) {
+    
     return (
         <>
             <div className="header1">
@@ -24,14 +27,16 @@ function DashboardLayout({ children, ...rest }) {
     )
 }
 
-const DashboardLayoutRoute = ({ component: Component, ...rest }) => {
+const DashboardPrivateRoute = ({ component: Component, ...rest }) => {
     return (
-        <Route {...rest} render={matchProps => (
-            <DashboardLayout>
-                <Component {...matchProps} />
-            </DashboardLayout>
+        <Route {...rest} render={props => (
+            localStorage.getItem('isLogin') ?
+                <DashboardLayout>
+                    <Component {...props} />
+                </DashboardLayout>
+                : <Redirect to="/login" />
         )} />
     )
 };
 
-export default DashboardLayoutRoute;
+export default DashboardPrivateRoute;

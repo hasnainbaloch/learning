@@ -1,12 +1,18 @@
-import React from 'react'
-import {
-    Link
-} from "react-router-dom";
+import React from 'react';
+import {useHistory} from 'react-router-dom';
 
 function Header() {
+
+    const history = useHistory();
+
+    const logout = () => {
+        localStorage.clear();
+        history.push('/');
+    }
+
     return (
         <div>
-            <Link to="/">Logout</Link>
+            <b style={{cursor: 'pointer'}} onClick={() => logout()}>Logout</b>
         </div>
     )
 }

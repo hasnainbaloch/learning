@@ -1,6 +1,6 @@
 import './App.css';
-import { DashboardLayoutRoute, LandingLayoutRoute } from './components/Layout';
-import { Landing, Home, About, NotFound } from './components/Pages'
+import { DashboardPrivateRoute, PublictRoute } from './components/Layout';
+import { Landing, Home, About, NotFound, Login } from './components/Pages'
 
 import {
   BrowserRouter as Router,
@@ -19,12 +19,13 @@ function App() {
           <Redirect to="/landing" />
         </Route>
         
-        {/* Landing Layout   */}
-        <LandingLayoutRoute path="/landing" exact component={Landing} />
+        {/* Landing Layout with public route  */}
+        <PublictRoute path="/landing" exact component={Landing} />
+        <PublictRoute path="/login" exact component={Login} />
         
         {/* Dashboard Layout   */}
-        <DashboardLayoutRoute path="/dashboard" exact component={Home} />
-        <DashboardLayoutRoute path="/dashboard/about" exact component={About} />
+        <DashboardPrivateRoute path="/dashboard" exact component={Home} />
+        <DashboardPrivateRoute path="/dashboard/about" exact component={About} />
         
         {/* Page not-found */}
         <Route component={NotFound} />
