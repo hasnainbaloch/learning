@@ -2,7 +2,7 @@
     display: flex;
 }
 .header{
-    background-color: coral;
+    background-color: rgb(168, 168, 168);
     padding: 20px;
     margin: 0;
     box-sizing: border-box;

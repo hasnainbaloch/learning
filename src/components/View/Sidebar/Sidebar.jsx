@@ -10,13 +10,13 @@ return (
         <nav>
         <ul>
             <li>
-            <Link to="/">Home</Link>
+            <Link to="/dashboard/home">Home</Link>
             </li>
             <li>
-            <Link to="/about">About</Link>
+            <Link to="/dashboard/about">About</Link>
             </li>
             <li>
-            <Link to="/users">Users</Link>
+            <Link to="/dashboard/users">Users</Link>
             </li>
         </ul>
         </nav>

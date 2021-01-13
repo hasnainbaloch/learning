@@ -1,31 +1,30 @@
 import './App.css';
-import Layout from './components/Layout/Layout';
-import { Home } from './components/Pages/Home';
-import { About } from './components/Pages/About';
+import { DashboardLayoutRoute, LandingLayoutRoute } from './components/Layout';
+import { Landing, Home, About, NotFound } from './components/Pages'
 
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from "react-router-dom";
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Layout>
-          <div className="page">
-            {/* Routing */}
-            <Switch>
-              <Route path="/" exact>
-                <Home />
-              </Route>
-              <Route path="/about" exact>
-                <About />
-              </Route>
-            </Switch>
-          </div>
-        </Layout>
+        <div className="page">
+          {/* Routing */}
+          <Switch>
+            <Route path="/" exact>
+              <Redirect to="/landing" />
+            </Route>
+            <LandingLayoutRoute path="/landing" exact component={Landing} />
+            <DashboardLayoutRoute path="/dashboard/home" exact component={Home} />
+            <DashboardLayoutRoute path="/dashboard/about" exact component={About} />
+            <Route component={NotFound} />
+          </Switch>
+        </div>
       </div>
     </Router>
   );

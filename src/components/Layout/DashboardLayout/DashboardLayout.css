@@ -1,0 +1,27 @@
+.layout{
+    display: flex;
+}
+.header1{
+    background-color: coral;
+    padding: 20px;
+    margin: 0;
+    box-sizing: border-box;
+    height: 75px;
+}
+.sidebar{
+    width: 15vw;
+    min-width: 200px;
+    background-color: cornflowerblue;
+    height: calc(100vh - 115px);
+}
+.body{
+    width: 85vw;
+    height: calc(100vh - 115px);
+}
+.footer{
+    height: 40px;
+    width: 100vw;
+    background-color: cadetblue;
+    line-height:1;
+    padding: 10px;
+}
