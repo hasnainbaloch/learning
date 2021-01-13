@@ -12,21 +12,27 @@ import {
 function App() {
   return (
     <Router>
-      <div className="App">
-        <div className="page">
-          {/* Routing */}
-          <Switch>
-            <Route path="/" exact>
-              <Redirect to="/landing" />
-            </Route>
-            <LandingLayoutRoute path="/landing" exact component={Landing} />
-            <DashboardLayoutRoute path="/dashboard/home" exact component={Home} />
-            <DashboardLayoutRoute path="/dashboard/about" exact component={About} />
-            <Route component={NotFound} />
-          </Switch>
-        </div>
-      </div>
+      <Switch>
+
+        {/* Redirect to landing Layout   */}
+        <Route path="/" exact>
+          <Redirect to="/landing" />
+        </Route>
+        
+        {/* Landing Layout   */}
+        <LandingLayoutRoute path="/landing" exact component={Landing} />
+        
+        {/* Dashboard Layout   */}
+        <DashboardLayoutRoute path="/dashboard/home" exact component={Home} />
+        <DashboardLayoutRoute path="/dashboard/about" exact component={About} />
+        
+        {/* Page not-found */}
+        <Route component={NotFound} />
+        <Redirect exact from={"*"} to={"/not-found"} />
+      
+      </Switch>
     </Router>
+
   );
 }
 
